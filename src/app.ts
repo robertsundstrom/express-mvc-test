@@ -11,7 +11,7 @@ import { init } from "./socket";
 const app = express();
 app.use(bodyParser());
 
-app.use(express.static("public"))
+app.use(express.static("public"));
 
 mvc(app);
 
