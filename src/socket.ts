@@ -7,15 +7,6 @@ export function init(server: any) {
 }
 
 export class Socket {
-    constructor() {
-        io.on("connection", (socket: any) => {
-            socket.emit("news", { hello: "world" });
-            socket.on("my other event", (data: any) => {
-                console.log(data);
-            });
-        });
-    }
-
     public emit(event: string, ...args: string[]) {
         io.emit(event, ...args);
     }
