@@ -9,8 +9,7 @@ interface ITodo {
 }
 
 @route("/todos")
-// @inject(Socket)
-@autoinject()
+@autoinject() // @inject(Socket)
 export default class TodosController /* extends Controller */ {
     private static todos: any = {};
     private socket: Socket;
