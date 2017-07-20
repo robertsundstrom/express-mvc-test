@@ -1,5 +1,6 @@
 import { Controller, get, post, route } from "@robertuzzu/express-mvc";
 
+@route("/api/test")
 export default class Test {
     @get()
     public get() {

@@ -13,19 +13,19 @@ interface ITodo {
 class Todos {
     public static get(id?: string) {
         if (typeof id === "undefined") {
-            return Http.get<ITodo[]>(`/todos`);
+            return Http.get<ITodo[]>(`/api/todos`);
         } else {
-            return Http.get<ITodo>(`/todos/${id}`);
+            return Http.get<ITodo>(`/api/todos/${id}`);
         }
     }
     public static add(todo: ITodo) {
-        return Http.post<ITodo>(`/todos`, todo);
+        return Http.post<ITodo>(`/api/todos`, todo);
     }
     public static update(todo: ITodo) {
-        return Http.put<number>(`/todos/${todo.id}`, todo);
+        return Http.put<number>(`/api/todos/${todo.id}`, todo);
     }
     public static delete(id: string) {
-        return Http.delete<void>(`/todos/${id}`);
+        return Http.delete<void>(`/api/todos/${id}`);
     }
 }
 

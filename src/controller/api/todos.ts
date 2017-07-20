@@ -1,6 +1,6 @@
 import { autoinject, Controller, delete_, get, inject, post, put, route } from "@robertuzzu/express-mvc";
-import { Socket } from "../socket";
-import { guid } from "../utils";
+import { ISocket, Socket } from "../../socket";
+import { guid } from "../../utils";
 
 interface ITodo {
     id?: string;
@@ -8,7 +8,7 @@ interface ITodo {
     isDone: boolean;
 }
 
-@route("/todos")
+@route("/api/todos")
 @autoinject() // @inject(Socket)
 export default class TodosController /* extends Controller */ {
     private static todos: any = {};

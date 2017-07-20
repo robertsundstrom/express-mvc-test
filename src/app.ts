@@ -1,10 +1,9 @@
-import {  mvc } from "@robertuzzu/express-mvc";
+import {  mapRoute, mvc } from "@robertuzzu/express-mvc";
 
 import * as bodyParser from "body-parser";
 import * as express from "express";
 import * as http from "http";
 import * as https from "https";
-import * as socketio from "socket.io";
 
 import { init } from "./socket";
 
@@ -14,6 +13,12 @@ app.use(bodyParser());
 app.use(express.static("public"));
 
 mvc(app);
+
+mapRoute(app, "", "/:controller/:action/:id?", {
+    controller: "home",
+    // tslint:disable-next-line:object-literal-sort-keys
+    action: "index",
+});
 
 const server = http.createServer(app);
 

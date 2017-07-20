@@ -6,7 +6,12 @@ export function init(server: any) {
     io = socketio(server);
 }
 
-export class Socket {
+export interface ISocket {
+    emit(event: string, ...args: string[]): void;
+    on(event: string, listener: () => void): void;
+}
+
+export class Socket implements ISocket {
     public emit(event: string, ...args: string[]) {
         io.emit(event, ...args);
     }
