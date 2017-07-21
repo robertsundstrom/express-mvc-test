@@ -1,11 +1,12 @@
 import {  mapRoute, mvc } from "@robertuzzu/express-mvc";
+import * as ioc from "@robertuzzu/express-mvc/dist/ioc";
 
 import * as bodyParser from "body-parser";
 import * as express from "express";
 import * as http from "http";
 import * as https from "https";
 
-import { init } from "./socket";
+import { init, Socket } from "./socket";
 
 const app = express();
 app.use(bodyParser());
@@ -21,6 +22,8 @@ mapRoute(app, "", "/:controller/:action/:id?", {
 });
 
 const server = http.createServer(app);
+
+// ioc.registerTransient(Socket);
 
 init(server);
 

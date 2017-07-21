@@ -77,6 +77,7 @@ class App {
         this.socket.on("todoCreated", async (id: any) => {
             const item = await Todos.get(id);
             this.addItem(item as ITodo);
+            this.nextItem = "";
         });
         this.socket.on("todoDeleted", (id: any) => {
             const item = this.todos.find((i) => i.id === id);
